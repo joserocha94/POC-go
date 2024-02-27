@@ -82,7 +82,6 @@ func main() {
 	for i := 0; i < 3; i++ {
 		test.AddNode(i*10);
 	}
-
 	
 	test.Print()
 	test.AddEdge(0,10)
