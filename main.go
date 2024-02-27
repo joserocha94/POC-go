@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/joserocha94/POC-go/tree/main/src/structs/structs"
+	"github.com/joserocha94/POC-go/structs"
 )
 	
 
