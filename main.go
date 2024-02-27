@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/joserocha94/POC-go/tree/main/src/structs/structs"
+	"github.com/joserocha94/POC-go/structs"
 )
 	
 
@@ -29,9 +29,10 @@ func main() {
 	queue := &Queue{}
 	queue.id = 5
 
-	faker := &xpto{}
+	imported := &xpto{}
+	imported.id = 5
 
-	fmt.Printf("\n %d", queue.id)
+	fmt.Println("%d", abc.contador)
 
 	fmt.Println("\nFinish")
 }
