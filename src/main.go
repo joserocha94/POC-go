@@ -25,6 +25,8 @@ func main() {
 	queue := &Queue{}
 	queue.id = 5
 
+	faker := &xpto{}
+
 	fmt.Printf("\n %d", queue.id)
 
 	fmt.Println("\nFinish")
