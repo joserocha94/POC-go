@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/joserocha94/POC-go/tree/main/src/structs"
+)
 	
 
 func main() {
