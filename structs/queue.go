@@ -1,5 +1,7 @@
 package structs
 
 type Queue struct {
-	id int
+	Id int
 }
+
+var Contador = 5

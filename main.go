@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/joserocha94/POC-go/structs"
+	structs "github.com/joserocha94/POC-go/structs"
 )
 	
 
@@ -11,7 +11,7 @@ func main() {
 
     fmt.Println("Starting...\n")
 
-	test := &Graph{}
+	test := &structs.Graph{}
 	for i := 0; i < 3; i++ {
 		test.AddNode(i*10);
 	}
@@ -26,9 +26,10 @@ func main() {
 	test.Print()
 	fmt.Println()
 
-	queue := &Queue{}
-	queue.id = 5
+	queue := &structs.Queue{}
+	queue.Id = 5
 
+	fmt.Println("\n%d", structs.Contador)
 
 	fmt.Println("\nFinish")
 }
