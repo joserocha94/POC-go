@@ -29,7 +29,7 @@ func main() {
 	queue := &Queue{}
 	queue.id = 5
 
-	fmt.Println("%d", abc.contador)
+	fmt.Println("%d", abc.Contador)
 
 	fmt.Println("\nFinish")
 }

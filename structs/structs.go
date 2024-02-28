@@ -1,3 +1,3 @@
 package structs
 
-var contador = 5
+var Contador = 5
