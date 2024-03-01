@@ -26,10 +26,23 @@ func main() {
 	test.Print()
 	fmt.Println()
 
-	queue := &structs.Queue{}
-	queue.Id = 5
+	fmt.Println("\nQueue: \n")
 
-	fmt.Println("\n%d", structs.Contador)
+	queue := &structs.Queue{}
+
+	queue.Enqueue("Primeiro")
+	queue.Enqueue("Segundo")
+	queue.Enqueue("Terceiro")
+	queue.Enqueue("Quarto")
+	queue.Enqueue("Quinto")
+
+	fmt.Print(queue.Print())
+
+	fmt.Println(queue.Dequeue())
+	fmt.Println(queue.Dequeue())
+	fmt.Println(queue.Dequeue())
+	fmt.Println(queue.Dequeue())
+	fmt.Println(queue.Dequeue())
 
 	fmt.Println("\nFinish")
 }
