@@ -1,10 +1,5 @@
 package structs
 
-type QueueNode struct {
-	Base Node
-	Next *QueueNode
-}
-
 type Queue struct {
 	Head *QueueNode
 	Tail *QueueNode
@@ -19,17 +14,14 @@ func (q *Queue) IsEmpty() bool {
 	}
 }
 
-func (q *Queue) Enqueue(Identifier string) {
+func (q *Queue) Enqueue(new_node QueueNode) {
 	
-	new_item := QueueNode { 
-		Base : Node {id : Identifier} }
-		 
 	if (q.IsEmpty()) {
-		q.Head = &new_item
-		q.Tail = &new_item
+		q.Head = &new_node
+		q.Tail = &new_node
 	} else {
-		q.Tail.Next = &new_item
-		q.Tail = &new_item
+		q.Tail.Next = &new_node
+		q.Tail = &new_node
 	}
 }
 
@@ -42,7 +34,7 @@ func (q *Queue) Dequeue() string {
 	} else {
 		queueNode := q.Head
 		q.Head = q.Head.Next
-		return queueNode.Base.id
+		return queueNode.Base.Id
 	}
 }
 
@@ -52,9 +44,9 @@ func (q *Queue) Print() string {
 
 	if !(q.IsEmpty()) {
 		curr := q.Head
-		output += "[" + curr.Base.id + "] "
+		output += "[" + curr.Base.Id + "] "
 		for (curr.Next != nil) {
-			output += "[" + curr.Next.Base.id + "] "
+			output += "[" + curr.Next.Base.Id + "] "
 			curr = curr.Next
 		}
 		output += "\n\n"

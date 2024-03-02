@@ -10,39 +10,26 @@ import (
 func main() {
 
     fmt.Println("Starting...\n")
-
-	test := &structs.Graph{}
-
-	test.AddNode("A");
-	test.AddNode("B");
-	test.AddNode("C");
+	// nodes
+	new_nodeA := structs.Node { Id: "A", Adjacent : [] *structs.Node{} }
+	new_nodeB := structs.Node { Id: "B", Adjacent : [] *structs.Node{} }
+	new_nodeC := structs.Node { Id: "C", Adjacent : [] *structs.Node{} }
+	new_nodeD := structs.Node { Id: "D", Adjacent : [] *structs.Node{} }
 	
-	test.Print()
-	test.AddEdge("A", "B")
-	test.AddEdge("A", "C")
-	test.AddEdge("B", "C")
-	fmt.Println()
+	// graph
+	test := &structs.Graph {}
+	
 
-	test.Print()
-	fmt.Println()
+	fmt.Println(test.Count())
+	test.AddNode(new_nodeA)
+	test.AddNode(new_nodeB)
+	test.AddNode(new_nodeC)
+	fmt.Println(test.Count())
 
-	fmt.Println("\nQueue: \n")
-
-	queue := &structs.Queue{}
-
-	queue.Enqueue("Primeiro")
-	queue.Enqueue("Segundo")
-	queue.Enqueue("Terceiro")
-	queue.Enqueue("Quarto")
-	queue.Enqueue("Quinto")
-
-	fmt.Print(queue.Print())
-
-	fmt.Println(queue.Dequeue())
-	fmt.Println(queue.Dequeue())
-	fmt.Println(queue.Dequeue())
-	fmt.Println(queue.Dequeue())
-	fmt.Println(queue.Dequeue())
+	fmt.Println(new_nodeD.Id)
+	
+	fmt.Println(test.Contains(new_nodeA))
+	fmt.Println(test.Contains(new_nodeD))
 
 	fmt.Println("\nFinish")
 }
