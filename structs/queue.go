@@ -5,6 +5,21 @@ type Queue struct {
 	Tail *QueueNode
 }
 
+func (q *Queue) Count() int {
+	
+	if (q.IsEmpty()) {
+		return 0
+	} else {
+		count := 1
+		curr := q.Head
+		for (curr.Next != nil) {
+			count++
+			curr = curr.Next
+		}
+		return count
+	}
+}
+
 func (q *Queue) IsEmpty() bool {
 
 	if (q.Head == nil) {
