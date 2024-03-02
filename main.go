@@ -12,15 +12,15 @@ func main() {
     fmt.Println("Starting...\n")
 
 	test := &structs.Graph{}
-	for i := 0; i < 3; i++ {
-		test.AddNode(i*10);
-	}
 
+	test.AddNode("A");
+	test.AddNode("B");
+	test.AddNode("C");
 	
 	test.Print()
-	test.AddEdge(0,10)
-	test.AddEdge(0,20)
-	test.AddEdge(10,20)
+	test.AddEdge("A", "B")
+	test.AddEdge("A", "C")
+	test.AddEdge("B", "C")
 	fmt.Println()
 
 	test.Print()

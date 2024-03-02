@@ -1,6 +1,6 @@
 package structs
 
 type Node struct {
-	id int
+	id string
 	adjacent []*Node
 }

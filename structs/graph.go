@@ -7,12 +7,12 @@ type Graph struct {
 }
 
 // adds node [k] to graph [g]
-func (g *Graph) AddNode(k int) {
+func (g *Graph) AddNode(k string) {
 	g.nodes = append(g.nodes, &Node{id : k})
 }
 
 // indicates if a given node [id] is a node in the graph [g]
-func (g *Graph) Contains(id int) bool {
+func (g *Graph) Contains(id string) bool {
 
 	for _,v := range g.nodes{
 		if v.id == id {
@@ -27,7 +27,7 @@ func (g *Graph) Contains(id int) bool {
 func (g *Graph) Print() {
 
 	for i,v := range g.nodes {
-		fmt.Printf("\nNode [%d] : %d", i, v.id)
+		fmt.Printf("\nNode [%d] : %s", i, v.id)
 		for _,v := range v.adjacent {
 			fmt.Printf("\n\t-> %v", v.id)
 		}
@@ -36,7 +36,7 @@ func (g *Graph) Print() {
 
 // adds edge to the graph 
 // between nodes [source] -> [target]
-func (g *Graph) AddEdge(source int, target int) {
+func (g *Graph) AddEdge(source string, target string) {
 	
 	//check if the nodes exists
 	if g.Contains(source) && g.Contains(target) {
@@ -51,7 +51,7 @@ func (g *Graph) AddEdge(source int, target int) {
 }
 
 // Get node [id] from graph [g]
-func (g *Graph) GetNode(id int) *Node {
+func (g *Graph) GetNode(id string) *Node {
 
 	for i,v := range g.nodes {
 		if v.id == id {
