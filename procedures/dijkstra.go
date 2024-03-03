@@ -38,8 +38,6 @@ func initialize(g structs.Graph, q *structs.Queue, s structs.Node) {
 
 func Dijkstra(g structs.Graph, q structs.Queue, s structs.Node) {
 
-	g.Print()
-
 
 	// initialize queue with max distances
 	// initialize vector predecessors
@@ -49,7 +47,6 @@ func Dijkstra(g structs.Graph, q structs.Queue, s structs.Node) {
 	for _,v := range predecessors{
 		fmt.Println("(" + v.Node + ", " + v.Parent + ")" )
 	}
-
 
 	fmt.Println(q.Print())
 
