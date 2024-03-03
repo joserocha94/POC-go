@@ -33,7 +33,7 @@ func main() {
 	//new_queuenodeC := structs.QueueNode { Base : new_nodeC }
 	//new_queuenodeD := structs.QueueNode { Base : new_nodeD }
 
-	Dijkstra(test, test_queue, new_nodeA)
+	procedures.Dijkstra(test, test_queue, new_nodeA)
 
 	fmt.Println("\n\nFinish")
 }
