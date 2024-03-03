@@ -59,16 +59,16 @@ func (q *Queue) Dequeue() string {
 
 func (q *Queue) Print() string {
 	
-	output := ""
+	output := "\n"
 
 	if !(q.IsEmpty()) {
 		curr := q.Head
-		output += "[" + curr.Base.Id + "]" + strconv.Itoa(curr.Distance) + " "
+		output += "[" + curr.Base.Id + "] dist:" + strconv.Itoa(curr.Distance) + " "
 		for (curr.Next != nil) {
-			output += "[" + curr.Next.Base.Id + "]" + strconv.Itoa(curr.Next.Distance) + " "
+			output += "[" + curr.Next.Base.Id + "] dist:" + strconv.Itoa(curr.Next.Distance) + " "
 			curr = curr.Next
 		}
-		output += "\n\n"
+		output += "\n"
 	}
 	
 	return output
