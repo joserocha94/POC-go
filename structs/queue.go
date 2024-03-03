@@ -1,5 +1,9 @@
 package structs
 
+import (
+    "strconv"
+)
+
 type Queue struct {
 	Head *QueueNode
 	Tail *QueueNode
@@ -59,9 +63,9 @@ func (q *Queue) Print() string {
 
 	if !(q.IsEmpty()) {
 		curr := q.Head
-		output += "[" + curr.Base.Id + "] "
+		output += "[" + curr.Base.Id + "]" + strconv.Itoa(curr.Distance) + " "
 		for (curr.Next != nil) {
-			output += "[" + curr.Next.Base.Id + "] "
+			output += "[" + curr.Next.Base.Id + "]" + strconv.Itoa(curr.Next.Distance) + " "
 			curr = curr.Next
 		}
 		output += "\n\n"
