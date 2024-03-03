@@ -2,11 +2,13 @@ package structs
 
 import (
     "strconv"
+
+	structs_ext "github.com/joserocha94/POC-go/structs/extended"
 )
 
 type Queue struct {
-	Head *QueueNode
-	Tail *QueueNode
+	Head *structs_ext.QueueNode
+	Tail *structs_ext.QueueNode
 }
 
 func (q *Queue) Count() int {
@@ -33,7 +35,7 @@ func (q *Queue) IsEmpty() bool {
 	}
 }
 
-func (q *Queue) Enqueue(new_node QueueNode) {
+func (q *Queue) Enqueue(new_node structs_ext.QueueNode) {
 	
 	if (q.IsEmpty()) {
 		q.Head = &new_node

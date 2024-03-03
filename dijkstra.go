@@ -3,18 +3,16 @@ package main
 import (
 	"fmt"
 
-	structs "github.com/joserocha94/POC-go/structs"
+	structs 	"github.com/joserocha94/POC-go/structs"
+	structs_ext "github.com/joserocha94/POC-go/structs/extended"
+
 )
 
 var MAX_DISTANCE int = 999
 var MIN_DISTANCE int = 0
 
-var predecessors [] *Parent
+var predecessors [] *structs_ext.Parent
 
-type Parent struct {
-	Node string
-	Parent string
-}
 
 // initialize queue with max distances
 // initialize vector predecessors
@@ -32,7 +30,7 @@ func initialize(g structs.Graph, q *structs.Queue, s structs.Node) {
 		q.Enqueue(new_queuenode)
 
 		//predecessors
-		new_parent := Parent{ v.Id, "-"}
+		new_parent := structs_ext.Parent{ v.Id, "-"}
 		predecessors = append(predecessors, &new_parent)
 	}
 }

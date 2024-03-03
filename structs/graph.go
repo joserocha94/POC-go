@@ -1,9 +1,12 @@
 package structs
 
-import "fmt"
+import (
+	"fmt"
+	structs_ext "github.com/joserocha94/POC-go/structs/extended"
+)
 
 type Graph struct {
-	Nodes []*Node
+	Nodes []*structs_ext.Node
 }
 
 // adds node [k] to graph [g]
@@ -19,12 +22,12 @@ func (g *Graph) Count() int {
 }
 
 // adds node [new_node] to graph [g]
-func (g *Graph) AddNode(new_node Node){
+func (g *Graph) AddNode(new_node structs_ext.Node){
 	g.Nodes = append(g.Nodes, &new_node)
 }
 
 // indicates if a given node [id] is a node in the graph [g]
-func (g *Graph) Contains(node Node) bool {
+func (g *Graph) Contains(node structs_ext.Node) bool {
 
 	for _,v := range g.Nodes{
 		if v.Id == node.Id {
@@ -48,7 +51,7 @@ func (g *Graph) Print() {
 
 // adds edge to the graph 
 // between Nodes [source] -> [target]
-func (g *Graph) AddEdge(source Node, target Node) {
+func (g *Graph) AddEdge(source structs_ext.Node, target structs_ext.Node) {
 	
 	//check if the Nodes exists
 	if g.Contains(source) && g.Contains(target) {

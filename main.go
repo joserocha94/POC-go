@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	structs "github.com/joserocha94/POC-go/structs"
+	structs_ext "github.com/joserocha94/POC-go/structs/extended"
 )
 	
 
@@ -12,9 +13,9 @@ func main() {
     fmt.Println("Starting...\n")
 
 	// nodes
-	new_nodeA := structs.Node { Id: "A", Adjacent : [] *structs.Node{} }
-	new_nodeB := structs.Node { Id: "B", Adjacent : [] *structs.Node{} }
-	new_nodeC := structs.Node { Id: "C", Adjacent : [] *structs.Node{} }
+	new_nodeA := structs_ext.Node { Id: "A", Adjacent : [] *structs_ext.Node{} }
+	new_nodeB := structs_ext.Node { Id: "B", Adjacent : [] *structs_ext.Node{} }
+	new_nodeC := structs_ext.Node { Id: "C", Adjacent : [] *structs_ext.Node{} }
 		
 	// graph
 	test := structs.Graph {}
