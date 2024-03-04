@@ -67,4 +67,16 @@ func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
 	printPredecessors()
 	printQueue(&q)
 
+	// to do:
+
+	//	- refactor initialize
+	//	- dividir em 3 metodos:
+	//		- predecessors
+	//		- distances
+	//		- encher a queue
+
+	// 	- priority queue vs queue ?
+
+
+
 }
