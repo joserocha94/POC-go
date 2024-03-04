@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	procedures "github.com/joserocha94/POC-go/procedures"
-	structs "github.com/joserocha94/POC-go/structs"
+	procedures 	"github.com/joserocha94/POC-go/procedures"
+	structs 	"github.com/joserocha94/POC-go/structs"
 	structs_ext "github.com/joserocha94/POC-go/structs/extended"
 )
 	

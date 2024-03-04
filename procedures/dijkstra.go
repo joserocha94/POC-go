@@ -1,4 +1,4 @@
-package main
+package procedures
 
 import (
 	"fmt"
@@ -16,7 +16,7 @@ var predecessors [] *structs_ext.Parent
 
 // initialize queue with max distances
 // initialize vector predecessors
-func initialize(g structs.Graph, q *structs.Queue, s structs.Node) {
+func initialize(g structs.Graph, q *structs.Queue, s structs_ext.Node) {
 	for _,v := range g.Nodes{
 
 		//distances
@@ -26,7 +26,7 @@ func initialize(g structs.Graph, q *structs.Queue, s structs.Node) {
 		} else {
 			distance = MAX_DISTANCE
 		}
-		new_queuenode := structs.QueueNode { Base : *v, Distance : distance } 
+		new_queuenode := structs_ext.QueueNode { Base : *v, Distance : distance } 
 		q.Enqueue(new_queuenode)
 
 		//predecessors
@@ -36,18 +36,28 @@ func initialize(g structs.Graph, q *structs.Queue, s structs.Node) {
 }
 
 
-func Dijkstra(g structs.Graph, q structs.Queue, s structs.Node) {
+// print predecessors
+func printPredecessors(){
+	for _,v := range predecessors {
+		fmt.Println("(" + v.Node + ", " + v.Parent + ")" )
+	}
+}
+
+
+// print Queue 
+// do to Queueu methods framework ..
+func printQueue(q *structs.Queue){
+	fmt.Println(q.Print())
+}
+
+func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
 
 
 	// initialize queue with max distances
 	// initialize vector predecessors
 	initialize(g, &q, s)
 
-	fmt.Println()
-	for _,v := range predecessors{
-		fmt.Println("(" + v.Node + ", " + v.Parent + ")" )
-	}
-
-	fmt.Println(q.Print())
+	printPredecessors()
+	printQueue(&q)
 
 }
