@@ -76,6 +76,12 @@ func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
 	//		- encher a queue
 
 	// 	- priority queue vs queue ?
+	for i := range q.Count() {
+		q.Dequeue()
+		printQueue(&q)
+		i = i
+	}
+
 
 
 
