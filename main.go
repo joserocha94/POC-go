@@ -35,6 +35,6 @@ func main() {
 
 	procedures.Dijkstra(test, test_queue, new_nodeA)
 
-	fmt.Println("\n\nFinish")
+	fmt.Println("\nFinish")
 }
 

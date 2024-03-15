@@ -34,6 +34,7 @@ func initDistancesQueue(g structs.Graph, q *structs.Queue, s structs_ext.Node){
 		}
 		new_queuenode := structs_ext.QueueNode { Base : *v, Distance : distance } 
 		q.Enqueue(new_queuenode)
+
 	}
 
 }
@@ -42,10 +43,14 @@ func initDistancesQueue(g structs.Graph, q *structs.Queue, s structs_ext.Node){
 // initialize predecessors
 func initPredecessors(g structs.Graph){
 
+	println(">>> Generating predecessors...")
+
 	for _,v := range g.Nodes{
 		new_parent := structs_ext.Parent{ v.Id, "-"}
 		predecessors = append(predecessors, &new_parent)
 	}
+
+	println(">>> Generating predecessors done")
 
 }
 
@@ -64,6 +69,7 @@ func initDistances(q *structs.Queue){
 		}
 	}
 	println(">>> Building distances vector done")
+
 }
 
 
@@ -84,28 +90,32 @@ func initialize(g structs.Graph, q *structs.Queue, s structs_ext.Node) {
 }
 
 
-
 // print predecessors
 func printPredecessors(){
+
 	for _,v := range predecessors {
 		fmt.Println("(" + v.Node + ", " + v.Parent + ")" )
 	}
 }
 
+
 // print distances
 func printDistances(){
+
 	for _,v := range distances {
 		fmt.Println(v.Id, v.Distance)
 	}
+
 }
 
 
 // print Queue 
 // do to Queueu methods framework ..
 func printQueue(q *structs.Queue){
-	fmt.Println(q.Print())
-}
 
+	fmt.Println(q.Print())
+
+}
 
 
 
@@ -116,10 +126,6 @@ func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
 	initialize(g, &q, s)
 
 	println()
-	println(">>> Generating predecessors...")
-	println(">>> Generating predecessors done")
-	println()
-
 	println(">>> Setup builded, program ready")
 	println()
 	printPredecessors()
@@ -140,9 +146,7 @@ func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
 		i = i
 	}
 
-
-
-
-
+	println(">>> TO DO ..")
+	println(">>> TO DO ..")
 
 }
