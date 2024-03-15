@@ -119,19 +119,9 @@ func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
 	printQueue(&q)
 
 	// to do:
-
-	//	- refactor initialize
-	//	- dividir em 3 metodos:
-	//		- predecessors
-	//		- distances
-	//		- encher a queue
-
-	// 	- priority queue vs queue ?
-	for i := range q.Count() {
-		q.Dequeue()
-		//printQueue(&q)
-		i = i
-	}
+	// 		balancear valores de distância entre vector e queue
+	//		atualizar a queue como priority queue conforme aquilo que está definido no vector
+	//		atualização é feita a cada interação ?
 
 	println(">>> TO DO ..")
 	println(">>> TO DO ..")
