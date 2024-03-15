@@ -16,19 +16,16 @@ var MIN_DISTANCE int = 0
 var predecessors [] *structs_ext.Parent
 var distances [] *Pair
 
+
 type Pair struct {
     Id, Distance interface{}
 }
 
 
-
-// initialize queue with max distances
-// initialize vector predecessors
-func initialize(g structs.Graph, q *structs.Queue, s structs_ext.Node) {
+func initDistancesQueue(g structs.Graph, q *structs.Queue, s structs_ext.Node){
 
 	for _,v := range g.Nodes{
 
-		//distances
 		distance := MIN_DISTANCE
 		if v.Id == s.Id {
 			distance = MIN_DISTANCE
@@ -37,19 +34,24 @@ func initialize(g structs.Graph, q *structs.Queue, s structs_ext.Node) {
 		}
 		new_queuenode := structs_ext.QueueNode { Base : *v, Distance : distance } 
 		q.Enqueue(new_queuenode)
-
-		//predecessors
-		new_parent := structs_ext.Parent{ v.Id, "-"}
-		predecessors = append(predecessors, &new_parent)
 	}
-
-	//distances
-	buildDistances(q)
 
 }
 
 
-func buildDistances(q *structs.Queue){
+// initialize predecessors
+func initPredecessors(g structs.Graph){
+
+	for _,v := range g.Nodes{
+		new_parent := structs_ext.Parent{ v.Id, "-"}
+		predecessors = append(predecessors, &new_parent)
+	}
+
+}
+
+
+// initialize distance vector
+func initDistances(q *structs.Queue){
 
 	println(">>> Building distances vector...")
 
@@ -63,6 +65,24 @@ func buildDistances(q *structs.Queue){
 	}
 	println(">>> Building distances vector done")
 }
+
+
+// initialize queue with max distances
+// initialize vector predecessors
+// initialize vector distances
+func initialize(g structs.Graph, q *structs.Queue, s structs_ext.Node) {
+
+	// queue
+	initDistancesQueue(g, q, s)
+
+	// predecessors
+	initPredecessors(g)
+
+	// distances vector
+	initDistances(q)
+
+}
+
 
 
 // print predecessors
@@ -98,10 +118,10 @@ func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
 	println()
 	println(">>> Generating predecessors...")
 	println(">>> Generating predecessors done")
-
-
 	println()
-	printDistances()
+
+	println(">>> Setup builded, program ready")
+	println()
 	printPredecessors()
 	printQueue(&q)
 
