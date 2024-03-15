@@ -1,6 +1,5 @@
 package procedures
 
-
 import (
 	"fmt"
 
@@ -11,7 +10,6 @@ import (
 
 var MAX_DISTANCE int = 999
 var MIN_DISTANCE int = 0
-
 
 var predecessors [] *structs_ext.Parent
 var distances [] *Pair
@@ -34,15 +32,12 @@ func initDistancesQueue(g structs.Graph, q *structs.Queue, s structs_ext.Node){
 		}
 		new_queuenode := structs_ext.QueueNode { Base : *v, Distance : distance } 
 		q.Enqueue(new_queuenode)
-
 	}
-
 }
 
 
 // initialize predecessors
 func initPredecessors(g structs.Graph){
-
 	println(">>> Generating predecessors...")
 
 	for _,v := range g.Nodes{
@@ -51,13 +46,11 @@ func initPredecessors(g structs.Graph){
 	}
 
 	println(">>> Generating predecessors done")
-
 }
 
 
 // initialize distance vector
 func initDistances(q *structs.Queue){
-
 	println(">>> Building distances vector...")
 
 	if !(q.IsEmpty()) {
@@ -69,7 +62,6 @@ func initDistances(q *structs.Queue){
 		}
 	}
 	println(">>> Building distances vector done")
-
 }
 
 
@@ -92,7 +84,6 @@ func initialize(g structs.Graph, q *structs.Queue, s structs_ext.Node) {
 
 // print predecessors
 func printPredecessors(){
-
 	for _,v := range predecessors {
 		fmt.Println("(" + v.Node + ", " + v.Parent + ")" )
 	}
@@ -101,20 +92,16 @@ func printPredecessors(){
 
 // print distances
 func printDistances(){
-
 	for _,v := range distances {
 		fmt.Println(v.Id, v.Distance)
 	}
-
 }
 
 
 // print Queue 
 // do to Queueu methods framework ..
 func printQueue(q *structs.Queue){
-
 	fmt.Println(q.Print())
-
 }
 
 
