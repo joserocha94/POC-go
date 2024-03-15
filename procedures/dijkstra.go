@@ -14,6 +14,12 @@ var MIN_DISTANCE int = 0
 
 
 var predecessors [] *structs_ext.Parent
+var distances [] Pair
+
+type Pair struct {
+    a, b interface{}
+}
+
 
 
 // initialize queue with max distances
@@ -35,7 +41,24 @@ func initialize(g structs.Graph, q *structs.Queue, s structs_ext.Node) {
 		//predecessors
 		new_parent := structs_ext.Parent{ v.Id, "-"}
 		predecessors = append(predecessors, &new_parent)
+	
+		//distances
+		//new_pair := Pair()
+		//p1 := Pair{"finished", 42}
+
 	}
+
+	buildDistances(q)
+
+}
+
+
+func buildDistances(q *structs.Queue){
+
+	println(">>> Build distances vector...")
+
+
+	println(">>> Build distances vector done")
 
 }
 
@@ -46,23 +69,29 @@ func printPredecessors(){
 	for _,v := range predecessors {
 		fmt.Println("(" + v.Node + ", " + v.Parent + ")" )
 	}
-
 }
+
 
 
 // print Queue 
 // do to Queueu methods framework ..
 func printQueue(q *structs.Queue){
-
 	fmt.Println(q.Print())
-
 }
+
+
+
 
 func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
 
 	// initialize queue with max distances
 	// initialize vector predecessors
 	initialize(g, &q, s)
+
+	println()
+	println(">>> Generating predecessors...")
+	println(">>> Generating predecessors done")
+
 
 	printPredecessors()
 	printQueue(&q)
@@ -78,9 +107,11 @@ func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
 	// 	- priority queue vs queue ?
 	for i := range q.Count() {
 		q.Dequeue()
-		printQueue(&q)
+		//printQueue(&q)
 		i = i
 	}
+
+
 
 
 
