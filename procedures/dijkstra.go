@@ -14,10 +14,10 @@ var MIN_DISTANCE int = 0
 
 
 var predecessors [] *structs_ext.Parent
-var distances [] Pair
+var distances [] *Pair
 
 type Pair struct {
-    a, b interface{}
+    Id, Distance interface{}
 }
 
 
@@ -41,13 +41,9 @@ func initialize(g structs.Graph, q *structs.Queue, s structs_ext.Node) {
 		//predecessors
 		new_parent := structs_ext.Parent{ v.Id, "-"}
 		predecessors = append(predecessors, &new_parent)
-	
-		//distances
-		//new_pair := Pair()
-		//p1 := Pair{"finished", 42}
-
 	}
 
+	//distances
 	buildDistances(q)
 
 }
@@ -55,22 +51,33 @@ func initialize(g structs.Graph, q *structs.Queue, s structs_ext.Node) {
 
 func buildDistances(q *structs.Queue){
 
-	println(">>> Build distances vector...")
+	println(">>> Building distances vector...")
 
-
-	println(">>> Build distances vector done")
-
+	if !(q.IsEmpty()) {
+		curr := q.Head
+		for (curr != nil) {
+			new_pair := Pair{curr.Base.Id, curr.Distance}
+			distances = append(distances, &new_pair)
+			curr = curr.Next
+		}
+	}
+	println(">>> Building distances vector done")
 }
 
 
 // print predecessors
 func printPredecessors(){
-
 	for _,v := range predecessors {
 		fmt.Println("(" + v.Node + ", " + v.Parent + ")" )
 	}
 }
 
+// print distances
+func printDistances(){
+	for _,v := range distances {
+		fmt.Println(v.Id, v.Distance)
+	}
+}
 
 
 // print Queue 
@@ -93,6 +100,8 @@ func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
 	println(">>> Generating predecessors done")
 
 
+	println()
+	printDistances()
 	printPredecessors()
 	printQueue(&q)
 
