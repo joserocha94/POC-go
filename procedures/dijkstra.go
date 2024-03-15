@@ -20,6 +20,7 @@ type Pair struct {
 }
 
 
+
 func initDistancesQueue(g structs.Graph, q *structs.Queue, s structs_ext.Node){
 
 	for _,v := range g.Nodes{
