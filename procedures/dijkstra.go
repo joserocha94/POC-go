@@ -110,7 +110,7 @@ func printQueue(q *structs.Queue){
 func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
 
 	// initialize queue with max distances
-	// initialize vector predecessors
+	// initialize vector predecessors   
 	initialize(g, &q, s)
 
 	println()
