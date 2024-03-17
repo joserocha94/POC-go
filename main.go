@@ -13,22 +13,18 @@ func main() {
 
     fmt.Println("Starting...\n")
 
-	// nodes
+	// build nodes
 	new_nodeA := structs_ext.Node { Id: "A", Adjacent : [] *structs_ext.Edge{} }
 	new_nodeB := structs_ext.Node { Id: "B", Adjacent : [] *structs_ext.Edge{} }
 	new_nodeC := structs_ext.Node { Id: "C", Adjacent : [] *structs_ext.Edge{} }
 		
-	// listas de adjacências
+	// build edges
 	new_edgeAB := structs_ext.Edge { Node: &new_nodeB, Distance : 5}
+	new_edgeAC := structs_ext.Edge { Node: &new_nodeC, Distance : 10}
 
-	// do list
+	// build adjacency list
 	new_nodeA.Adjacent = append(new_nodeA.Adjacent, &new_edgeAB)
-
-	//new_nodeA.Adjacent = append(new_nodeA.Adjacent, &new_nodeB)
-	//new_nodeA.Adjacent = append(new_nodeA.Adjacent, &new_nodeC)
-	//new_nodeB.Adjacent = append(new_nodeB.Adjacent, &new_nodeA)
-	//new_nodeC.Adjacent = append(new_nodeC.Adjacent, &new_nodeA)
-
+	new_nodeA.Adjacent = append(new_nodeA.Adjacent, &new_edgeAC)
 
 	// graph
 	test := structs.Graph {}
@@ -40,11 +36,8 @@ func main() {
 
 	// queue
 	test_queue := structs.Queue {}
-	//new_queuenodeA := structs.QueueNode { Base : new_nodeA }
-	//new_queuenodeB := structs.QueueNode { Base : new_nodeB }
-	//new_queuenodeC := structs.QueueNode { Base : new_nodeC }
-	//new_queuenodeD := structs.QueueNode { Base : new_nodeD }
 
+	// run dijkstra
 	procedures.Dijkstra(test, test_queue, new_nodeA)
 
 	fmt.Println("\nFinish")
