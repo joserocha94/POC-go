@@ -13,7 +13,7 @@ func main() {
 
     fmt.Println("Starting...\n")
 
-	
+
 	// build nodes
 	new_nodeA := structs_ext.Node { Id: "A", Adjacent : [] *structs_ext.Edge{} }
 	new_nodeB := structs_ext.Node { Id: "B", Adjacent : [] *structs_ext.Edge{} }
@@ -22,7 +22,7 @@ func main() {
 		
 	// build edges
 	new_edgeAB := structs_ext.Edge { Node: &new_nodeB, Distance : 5}
-	new_edgeAC := structs_ext.Edge { Node: &new_nodeC, Distance : 10}
+	new_edgeAC := structs_ext.Edge { Node: &new_nodeC, Distance : 7}
 
 
 	// build adjacency list
