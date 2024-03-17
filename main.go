@@ -18,6 +18,13 @@ func main() {
 	new_nodeB := structs_ext.Node { Id: "B", Adjacent : [] *structs_ext.Node{} }
 	new_nodeC := structs_ext.Node { Id: "C", Adjacent : [] *structs_ext.Node{} }
 		
+	// listas de adjacências
+	new_nodeA.Adjacent = append(new_nodeA.Adjacent, &new_nodeB)
+	new_nodeA.Adjacent = append(new_nodeA.Adjacent, &new_nodeC)
+	new_nodeB.Adjacent = append(new_nodeB.Adjacent, &new_nodeA)
+	new_nodeC.Adjacent = append(new_nodeC.Adjacent, &new_nodeA)
+
+
 	// graph
 	test := structs.Graph {}
 	

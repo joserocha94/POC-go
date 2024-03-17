@@ -124,7 +124,27 @@ func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
 	//		atualizar a queue como priority queue conforme aquilo que está definido no vector
 	//		atualização é feita a cada interação ?
 
-	println(">>> TO DO ..")
-	println(">>> TO DO ..")
+
+
+	println(q.Count())
+
+	// while Queue not empty
+	for q.Count() > 1 {
+
+		// extract node with smallest d[u]
+		// it's going to be the first node since queue is ordered
+		println(">>> Getting neighbours for ", q.Head.Base.Id)
+		
+		for _,v := range q.Head.Base.Adjacent {
+			println(v.Id)
+		}
+
+		q.Dequeue()
+
+	}
+	println()
+	println(">>> Out of loop")
+	println(">>> Out of Dijkstra")
+
 
 }
