@@ -133,7 +133,7 @@ func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
 		println(">>> Getting neighbours for ", q.Head.Base.Id)
 		
 		for _,v := range q.Head.Base.Adjacent {
-			println(v.Id)
+			println(v.Node.Id)
 		}
 
 		q.Dequeue()

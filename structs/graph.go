@@ -44,18 +44,19 @@ func (g *Graph) Print() {
 	for i,v := range g.Nodes {
 		fmt.Printf("\nNode [%d] : %s", i, v.Id)
 		for _,v := range v.Adjacent {
-			fmt.Printf("\n\t-> %v", v.Id)
+			fmt.Printf("\n\t-> %v", v.Node.Id)
 		}
 	}
 }
 
 // adds edge to the graph 
 // between Nodes [source] -> [target]
+// to do
 func (g *Graph) AddEdge(source structs_ext.Node, target structs_ext.Node) {
 	
 	//check if the Nodes exists
 	if g.Contains(source) && g.Contains(target) {
-		source.Adjacent = append(source.Adjacent, &target)
+		//source.Adjacent = append(source.Adjacent, &target)
 	} else {
 		fmt.Println("Invalid Nodes")
 	}
