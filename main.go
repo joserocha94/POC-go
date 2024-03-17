@@ -21,8 +21,8 @@ func main() {
 	// listas de adjacências
 	new_nodeA.Adjacent = append(new_nodeA.Adjacent, &new_nodeB)
 	new_nodeA.Adjacent = append(new_nodeA.Adjacent, &new_nodeC)
-	new_nodeB.Adjacent = append(new_nodeB.Adjacent, &new_nodeA)
-	new_nodeC.Adjacent = append(new_nodeC.Adjacent, &new_nodeA)
+	//new_nodeB.Adjacent = append(new_nodeB.Adjacent, &new_nodeA)
+	//new_nodeC.Adjacent = append(new_nodeC.Adjacent, &new_nodeA)
 
 
 	// graph

@@ -20,7 +20,6 @@ type Pair struct {
 }
 
 
-
 func initDistancesQueue(g structs.Graph, q *structs.Queue, s structs_ext.Node){
 
 	for _,v := range g.Nodes{
@@ -114,22 +113,20 @@ func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
 	initialize(g, &q, s)
 
 	println()
-	println(">>> Setup builded, program ready")
-	println()
 	printPredecessors()
 	printQueue(&q)
 
+	println(">>> Setup builded, program ready")
+	println()
+		
+
 	// to do:
-	// 		balancear valores de distância entre vector e queue
-	//		atualizar a queue como priority queue conforme aquilo que está definido no vector
-	//		atualização é feita a cada interação ?
-
-
-
-	println(q.Count())
+	// balancear valores de distância entre vector e queue
+	// atualizar a queue como priority queue conforme aquilo que está definido no vector
+	// atualização é feita a cada interação ?
 
 	// while Queue not empty
-	for q.Count() > 1 {
+	for q.Count() > 0 {
 
 		// extract node with smallest d[u]
 		// it's going to be the first node since queue is ordered
