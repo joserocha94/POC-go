@@ -1,5 +1,6 @@
 package procedures
 
+
 import (
 	"fmt"
 
@@ -10,6 +11,7 @@ import (
 
 var MAX_DISTANCE int = 999
 var MIN_DISTANCE int = 0
+
 
 var predecessors [] *structs_ext.Parent
 var distances [] *Pair
@@ -103,7 +105,6 @@ func printDistances(){
 func printQueue(q *structs.Queue){
 	fmt.Println(q.Print())
 }
-
 
 
 func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
