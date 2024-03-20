@@ -17,9 +17,11 @@ var predecessors [] *structs_ext.Parent
 var distances [] *Pair
 
 
+
 type Pair struct {
     Id, Distance interface{}
 }
+
 
 
 func initDistancesQueue(g structs.Graph, q *structs.Queue, s structs_ext.Node){
