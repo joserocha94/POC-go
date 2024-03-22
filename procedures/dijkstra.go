@@ -169,6 +169,7 @@ func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
 			fmt.Println("dv =", dv, ", du =", du, ", uv =", uv)
 
 
+
 			// se encontra melhor, atualiza
 			if (dv > du + uv) {
 				for _,k := range distances {
@@ -181,6 +182,9 @@ func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
 
 
 			// reordenar a queue em função das novas distâncias
+			// ou refazer a lógica do Dequeue() para remover sempre o menor
+			// mas isso não estraga o que é uma queue? ou seja sacar sempre o de cima/ponta
+			
 
 		}
 
