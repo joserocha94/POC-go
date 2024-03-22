@@ -172,13 +172,17 @@ func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
 
 			// se encontra melhor, atualiza
 			if (dv > du + uv) {
+				//distances
 				for _,k := range distances {
 					if k.Id == q.Head.Base.Id {
 						k.Distance = du + uv
 						break
 					}
 				}	
+				//parents
+				// to do
 			}
+
 
 
 			// reordenar a queue em função das novas distâncias
