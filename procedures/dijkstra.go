@@ -142,7 +142,6 @@ func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
 		var du int
 		var uv int
 
-
 		for _,v := range q.Head.Base.Adjacent {
 			println("\tFound node [", v.Node.Id, "] with distance [", v.Distance, "]")
 
@@ -168,6 +167,18 @@ func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
 			// [luv] é o v.Distance
 			uv = v.Distance
 			fmt.Println("dv =", dv, ", du =", du, ", uv =", uv)
+
+
+			// se encontra melhor, atualiza
+			if (dv > du + uv) {
+				for _,k := range distances {
+					if k.Id == q.Head.Base.Id {
+						k.Distance = du + uv
+						break
+					}
+				}	
+			}
+				
 
 		}
 
