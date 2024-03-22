@@ -178,7 +178,9 @@ func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
 					}
 				}	
 			}
-				
+
+
+			// reordenar a queue em função das novas distâncias
 
 		}
 
