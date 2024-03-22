@@ -133,17 +133,42 @@ func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
 		// extract node with smallest d[u]
 		// it's going to be the first node since queue is ordered
 		println(">>> Getting neighbours for ", q.Head.Base.Id)
-		
+
+
+		// confirmar que d[v] > d[u] + l[uv]
+		// [u] é o nó atual
+		// [v] é o vizinho atual		
+		var dv int
+		var du int
+		var uv int
+
+
 		for _,v := range q.Head.Base.Adjacent {
 			println("\tFound node [", v.Node.Id, "] with distance [", v.Distance, "]")
 
-			// confirmar que d[v] > d[u] + l[uv]
-			// [u] é o nó atual
-			// [v] é o vizinho atual
+			// encontrar [dv] nas distances 
+			for _,k := range distances {
+				if k.Id == v.Node.Id {
+					dv = k.Distance.(int)
+					break
+				}
+			}
 
-			var dv = 1
-			var du = 1
-			var luv = 1
+
+			// encontrar [du] nas distances
+			// isto deve ser feito fora deste loop
+			for _,k := range distances {
+				if k.Id == q.Head.Base.Id {
+					du = k.Distance.(int)
+					break
+				}
+			}		
+			
+
+			// [luv] é o v.Distance
+			uv = v.Distance
+			fmt.Println("dv =", dv, ", du =", du, ", uv =", uv)
+
 		}
 
 		q.Dequeue()
