@@ -122,7 +122,6 @@ func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
 	println(">>> Setup builded, program ready")
 	println()
 		
-
 	// to do:
 	// balancear valores de distância entre vector e queue
 	// atualizar a queue como priority queue conforme aquilo que está definido no vector
@@ -137,6 +136,14 @@ func Dijkstra(g structs.Graph, q structs.Queue, s structs_ext.Node) {
 		
 		for _,v := range q.Head.Base.Adjacent {
 			println("\tFound node [", v.Node.Id, "] with distance [", v.Distance, "]")
+
+			// confirmar que d[v] > d[u] + l[uv]
+			// [u] é o nó atual
+			// [v] é o vizinho atual
+
+			var dv = 1
+			var du = 1
+			var luv = 1
 		}
 
 		q.Dequeue()
